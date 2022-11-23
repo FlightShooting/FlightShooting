@@ -2,6 +2,7 @@ package com.example.aviones.lanzador;
 
 import com.example.aviones.avion.Avion;
 import com.example.aviones.avion.AvionPerseguidor;
+import com.example.aviones.gui.Ventana;
 
 import java.util.Scanner;
 
