@@ -12,11 +12,9 @@ El código que nos devuelve una operación que registra un nuevo producto en la 
 ¿Qué código de estado HTTP y respuesta devolverá una operación que utiliza el método HTTP DELETE?
 ### Respuesta:
 Los códigos de estado que puede devolver una operación que utiliza el método HTTP DELETE serán los siguientes: 200 todo ha ido correctamente y la respuesta muestra la descripcion del estado
-<html>
-  <body>
-    <h1>File deleted.</h1>
-  </body>
-</html>
+
+<img width="157" alt="html" src="https://user-images.githubusercontent.com/98779707/203529417-4aa17445-5135-4ff9-8e6c-35bb2ebd3a29.png">
+
 . Luego puede tener el código 204, y 202 donde en la respuesta no se muestra contenido. 
 
 ¿Qué código de respuesta HTTP devolverá una operación que sirve para conocer la información de un producto determinado? ¿Y si no lo encuentra?
