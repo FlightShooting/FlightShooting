@@ -7,10 +7,10 @@ import java.awt.Image;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
-public class Ventana  extends JFrame implements Runnable {
+public class VentanaAvion extends JFrame implements Runnable {
     int x1, x2, x3, x4;
 
-    public Ventana() {
+    public VentanaAvion() {
         x1 = x2 = x3 = x4 = 10;
         initFrame();
     }
