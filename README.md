@@ -19,7 +19,7 @@ Los códigos de estado que puede devolver una operación que utiliza el método 
 
 ¿Qué código de respuesta HTTP devolverá una operación que sirve para conocer la información de un producto determinado? ¿Y si no lo encuentra?
 ### Respuesta:
-
+El código de respuesta HTTP que devolverá una operación que sirve para conocer la información de un producto determinado es 206 (Partial Content)Ese código de estado se usa por ejemplo para devolver un rango, producto o página. Si el producto buscado no se encuentra devolverá un error tipo: 404 (Not Found). 
 
 Aplicación que simula un juego de disparo de Aviones
 
