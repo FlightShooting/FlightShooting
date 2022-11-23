@@ -1,4 +1,15 @@
 # Flight Shooting
+
+### Ejercicios teóricos
+¿Qué código de estado HTTP devolverá una operación que devuelve la lista de usuarios conectados cuando no haya ninguno? ¿Y qué información devolverá en la respuesta?
+### Respuesta:
+¿Qué código de estado HTTP debe devolver una operación que registra un nuevo producto en la base de datos? ¿Debe devolver algo como respuesta?
+### Respuesta:
+¿Qué código de estado HTTP y respuesta devolverá una operación que utiliza el método HTTP DELETE?
+### Respuesta:
+¿Qué código de respuesta HTTP devolverá una operación que sirve para conocer la información de un producto determinado? ¿Y si no lo encuentra?
+### Respuesta:
+
 Aplicación que simula un juego de disparo de Aviones
 
 ### Enunciado:
