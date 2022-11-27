@@ -9,7 +9,7 @@ public class AvionesApplication {
 
 	public static void main(String[] args) {
 
-		lanzar(args);
+		lanzar();
 	}
 
 }

@@ -2,11 +2,14 @@ package com.example.aviones.lanzador;
 
 import com.example.aviones.avion.Avion;
 import com.example.aviones.avion.AvionPerseguidor;
+import com.example.aviones.gui.Ventana;
 
 import java.util.Scanner;
 
 public class Lanzador {
-    public static void lanzar(String[] args) {
+    public static void lanzar() {
+        Ventana ventana = new Ventana();
+        ventana.setVisible(true);
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduce la altura del avión: ");
         int altura = scanner.nextInt();
