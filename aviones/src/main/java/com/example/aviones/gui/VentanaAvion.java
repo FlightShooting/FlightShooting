@@ -8,10 +8,10 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 public class VentanaAvion extends JFrame implements Runnable {
-    int x1, x2, x3, x4;
+    int x1, x2;
 
     public VentanaAvion() {
-        x1 = x2 = x3 = x4 = 10;
+        x1 = x2 = 10;
         initFrame();
     }
     @Override
@@ -38,52 +38,29 @@ public class VentanaAvion extends JFrame implements Runnable {
         this.setVisible(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
-    private void avion1() throws InterruptedException {
+    private void avion1(){
         while(x1!=800) {
             x1++;
-            Thread.sleep(50);
             repaint();
-            synchronized (this) {
-                if(x1==500) {
-                    this.wait();
-                }
-            }
         }
-
-
     }
 
-    private void avion2() throws InterruptedException {
+    private void avion2() {
         while(x2!=800) {
             x2++;
-            Thread.sleep(30);
             repaint();
-            synchronized (this) {
-                if(x2==500) {
-                    this.wait();
-                }
             }
         }
 
-    }
+
 
     @Override
     public void run() {
         if(Thread.currentThread().getName().equals("avion1")) {
-            try {
                 avion1();
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
         }
         else if(Thread.currentThread().getName().equals("avion2")) {
-            try {
                 avion2();
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
         }
 
     }
