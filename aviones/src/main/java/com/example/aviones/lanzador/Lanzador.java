@@ -23,8 +23,8 @@ public class Lanzador {
         avion.subir();
         avion.bajar();
         avion.bajar();
+        avion.frenar();
         avion.girar(Avion.Direccion.IZQUIERDA);
-        avion.girar(Avion.Direccion.DERECHA);
         avion.acelerar();
 
         System.out.println();
