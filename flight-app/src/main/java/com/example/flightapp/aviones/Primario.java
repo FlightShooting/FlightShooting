@@ -2,14 +2,16 @@ package com.example.flightapp.aviones;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import net.minidev.json.writer.JsonReader;
 import org.apache.tomcat.util.json.JSONParser;
+import org.apache.tomcat.util.json.ParseException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.boot.autoconfigure.couchbase.CouchbaseProperties;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class Primario extends Avion implements Runnable {
     private String origen;
@@ -17,11 +19,15 @@ public class Primario extends Avion implements Runnable {
     private String CodOrig;
     private String CodDest;
 
-    //private static final String filePath = "src/main/resources/airports.json";
+
+    private static final String filePath = "src/main/resources/airports.json";
     //JSONParser parser = new JSONParser();
     //JSONArray a = (JSONArray) parser.parse(new FileReader("src/main/resources/airports.json"));
+
+
     ObjectMapper mapper = new ObjectMapper();
     JsonNode airports = mapper.readTree(new File("src/main/resources/airports.json"));
+
     public Primario(String id, int velocidad, int recorrido) throws IOException {
         super(id, velocidad, recorrido);
     }
@@ -31,7 +37,11 @@ public class Primario extends Avion implements Runnable {
         //primero se obtiene un plan de vuelo
         plan();
         //luego se obtiene la ruta
-        ruta();
+        try {
+            ruta();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         //empezar vuelo
         vuelo(velocidad, id);
     }
@@ -106,11 +116,11 @@ public class Primario extends Avion implements Runnable {
         }
     }
 
-    public void ruta(){
+    public void ruta() throws IOException {
         //obtener cordenadas desde api
         //JSONObject json = new JSONObject("src/main/resources/airports.json");
         double lat1 = airports.get(CodOrig).get("lat").asDouble();
-        double lon1 = airports.get(CodOrig).get("lon").asDouble();
+        double lon1=0;// = airports.get(CodOrig).get("lon").asDouble();
         System.out.println(lat1 + " " + lon1);
 
 
@@ -122,7 +132,7 @@ public class Primario extends Avion implements Runnable {
     }
 
 
-    public void ordenadorVuelo(double lat1, double lng1, double lat2, double lng2) {
+        public void ordenadorVuelo(double lat1, double lng1, double lat2, double lng2) {
         //double radioTierra = 3958.75;//en millas
         double radioTierra = 6371;//en kilómetros
         double dLat = Math.toRadians(lat2 - lat1);
