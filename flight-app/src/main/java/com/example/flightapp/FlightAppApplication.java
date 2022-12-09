@@ -10,7 +10,7 @@ import java.io.IOException;
 public class FlightAppApplication {
 
     public static void main(String[] args) throws IOException {
-        SpringApplication.run(FlightAppApplication.class, args);
+       SpringApplication.run(FlightAppApplication.class, args);
         Primario p = new Primario( "1", 100, 1000);
         p.run();
     }
