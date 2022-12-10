@@ -9,7 +9,6 @@ import org.apache.tomcat.util.json.ParseException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.boot.autoconfigure.couchbase.CouchbaseProperties;
 
 import java.io.*;
 
@@ -20,13 +19,13 @@ public class Primario extends Avion implements Runnable {
     private String CodDest;
 
 
-    private static final String filePath = "src/main/resources/airports.json";
+    private static final String filePath = "src/main/resources/airports2.json";
     //JSONParser parser = new JSONParser();
     //JSONArray a = (JSONArray) parser.parse(new FileReader("src/main/resources/airports.json"));
 
 
-   ObjectMapper mapper = new ObjectMapper();
-   JsonNode airports = mapper.readTree(new File("src/main/resources/airports.json"));
+  // ObjectMapper mapper = new ObjectMapper();
+  // JsonNode airports = mapper.readTree(new File("src/main/resources/airports2.json"));
 
     public Primario(String id, int velocidad, int recorrido) throws IOException {
         super(id, velocidad, recorrido);
@@ -117,13 +116,23 @@ public class Primario extends Avion implements Runnable {
     }
 
     public void ruta() throws IOException, JSONException {
+        JSONObject jsonObject = new JSONObject(String.valueOf(new FileReader(filePath)));
+        // Get the value of a field in the JSON object.
+        String nombre = jsonObject.getString("name");
+
+        // Print the value of the field.
+        System.out.println(nombre);
+
+
+
+
         //obtener cordenadas desde api
         //JSONObject json = new JSONObject("src/main/resources/airports.json");
-
+/*
         InputStream is = filePath.getClass().getResourceAsStream(filePath);
         String resultado = null;
-        JSONObject json = null;
-        JSONArray jsonArray = null;
+        JSONObject json = new JSONObject("src/main/resources/airports2.json");
+        JSONArray jsonArray;
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
         String linea = null;
@@ -131,27 +140,29 @@ public class Primario extends Avion implements Runnable {
             sb.append(linea + "\n");
         is.close();
         resultado = sb.toString();
-        json = new JSONObject(resultado);
-        jsonArray = json.getJSONArray("features");
-        String latitud, longitud,coordenadas = null;
+  //      json = new JSONObject(resultado);
+        jsonArray = json.getJSONArray("airports2");
+        double latitud, longitud = 0;
         for (int i = 0; i < jsonArray.length(); i++) {
-            latitud = jsonArray.getJSONObject(i).getJSONObject("properties").getString("lat");
-            longitud  = jsonArray.getJSONObject(i).getJSONObject("properties").getString("lng");
-            coordenadas = coordenadas.substring(1, coordenadas.length() - 1);
-            String latlong[] = coordenadas.split(",");
+            latitud = jsonArray.getJSONObject(i).getDouble("lat");
+            longitud  = jsonArray.getJSONObject(i).getDouble("lng");
         }
 
+ */
 
+/*
         double lat1 = airports.get(CodOrig).get("lat").asDouble();
         double lon1 = airports.get(CodOrig).get("lng").asDouble();
         double lat2 = airports.get(CodDest).get("lat").asDouble();
         double lon2 = airports.get(CodDest).get("lng").asDouble();
+
+
         System.out.println(lat1 + " " + lon1);
         System.out.println(lat2 + " " + lon2);
-
+ */
 
         //calcular ruta para llegar de A a B
-        ordenadorVuelo(lat1,lon1,lat2,lon2);
+     //   ordenadorVuelo(lat1,lon1,lat2,lon2);
 
 
 
