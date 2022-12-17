@@ -18,14 +18,7 @@ public class Primario extends Avion implements Runnable {
     private String CodOrig;
     private String CodDest;
 
-
-    private static final String filePath = "src/main/resources/airports2.json";
-    //JSONParser parser = new JSONParser();
-    //JSONArray a = (JSONArray) parser.parse(new FileReader("src/main/resources/airports.json"));
-
-
-  // ObjectMapper mapper = new ObjectMapper();
-  // JsonNode airports = mapper.readTree(new File("src/main/resources/airports2.json"));
+    private String[] Codigos;
 
     public Primario(String id, int velocidad, int recorrido) throws IOException {
         super(id, velocidad, recorrido);
@@ -116,12 +109,12 @@ public class Primario extends Avion implements Runnable {
     }
 
     public void ruta() throws IOException, JSONException {
-        JSONObject jsonObject = new JSONObject(String.valueOf(new FileReader(filePath)));
+    //    JSONObject jsonObject = new JSONObject(String.valueOf(new FileReader(filePath)));
         // Get the value of a field in the JSON object.
-        String nombre = jsonObject.getString("name");
+      //  String nombre = jsonObject.getString("name");
 
         // Print the value of the field.
-        System.out.println(nombre);
+       // System.out.println(nombre);
 
 
 
