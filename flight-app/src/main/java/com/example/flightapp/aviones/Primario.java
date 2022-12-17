@@ -1,15 +1,5 @@
 package com.example.flightapp.aviones;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import net.minidev.json.writer.JsonReader;
-import org.apache.tomcat.util.json.JSONParser;
-import org.apache.tomcat.util.json.ParseException;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.*;
 
 public class Primario extends Avion implements Runnable {
@@ -29,11 +19,7 @@ public class Primario extends Avion implements Runnable {
         //primero se obtiene un plan de vuelo
         plan();
         //luego se obtiene la ruta
-        try {
             ruta();
-        } catch (IOException | JSONException e) {
-            throw new RuntimeException(e);
-        }
         //empezar vuelo
         vuelo(velocidad, id);
     }
@@ -108,40 +94,7 @@ public class Primario extends Avion implements Runnable {
         }
     }
 
-    public void ruta() throws IOException, JSONException {
-    //    JSONObject jsonObject = new JSONObject(String.valueOf(new FileReader(filePath)));
-        // Get the value of a field in the JSON object.
-      //  String nombre = jsonObject.getString("name");
-
-        // Print the value of the field.
-       // System.out.println(nombre);
-
-
-
-
-        //obtener cordenadas desde api
-        //JSONObject json = new JSONObject("src/main/resources/airports.json");
-/*
-        InputStream is = filePath.getClass().getResourceAsStream(filePath);
-        String resultado = null;
-        JSONObject json = new JSONObject("src/main/resources/airports2.json");
-        JSONArray jsonArray;
-        BufferedReader br = new BufferedReader(new InputStreamReader(is));
-        StringBuilder sb = new StringBuilder();
-        String linea = null;
-        while ((linea = br.readLine()) != null)
-            sb.append(linea + "\n");
-        is.close();
-        resultado = sb.toString();
-  //      json = new JSONObject(resultado);
-        jsonArray = json.getJSONArray("airports2");
-        double latitud, longitud = 0;
-        for (int i = 0; i < jsonArray.length(); i++) {
-            latitud = jsonArray.getJSONObject(i).getDouble("lat");
-            longitud  = jsonArray.getJSONObject(i).getDouble("lng");
-        }
-
- */
+    public void ruta(){
 
 /*
         double lat1 = airports.get(CodOrig).get("lat").asDouble();

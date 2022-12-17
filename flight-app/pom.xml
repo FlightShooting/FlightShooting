@@ -61,11 +61,6 @@
             <version>2.4.8</version>
         </dependency>
         <dependency>
-            <groupId>com.commit451</groupId>
-            <artifactId>bitmapji</artifactId>
-            <version>1.0.1</version>
-        </dependency>
-        <dependency>
             <groupId>org.webjars.npm</groupId>
             <artifactId>bitmap-sdf</artifactId>
             <version>1.0.4</version>
