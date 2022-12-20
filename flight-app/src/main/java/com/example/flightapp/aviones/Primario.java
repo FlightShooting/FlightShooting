@@ -64,7 +64,7 @@ public class Primario implements Runnable {
         boolean volando = true;
         while (volando){
             System.out.println(percentage + "% . . .");
-            thread
+            Thread.sleep(1000);
             if ()
         }
 
