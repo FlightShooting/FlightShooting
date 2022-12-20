@@ -11,6 +11,10 @@ description: >-
 
 {% endswagger-description %}
 
+{% swagger-parameter in="query" name="airports" type="array" required="true" %}
+
+{% endswagger-parameter %}
+
 {% swagger-response status="200: OK" description="Aeropuertos devolvidos" %}
 ```json
 [{"code":"LEMD","data":{"geo":{"lat":40.471926,"lng":-3.56264},"id":1}},{"code":"LEBL","data":{"geo":{"lat":41.297078,"lng":2.078464},"id":2}},{"code":"EGLL","data":{"geo":{"lat":51.470022,"lng":-0.454295},"id":3}},{"code":"EHAM","data":{"geo":{"lat":52.308613,"lng":4.763889},"id":4}},{"code":"LFPG","data":{"geo":{"lat":49.012798,"lng":2.55},"id":5}}]
