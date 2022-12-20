@@ -176,7 +176,9 @@ npm install firebase
     </dependencies>
 ```
 
-Entre las dependencias&#x20;
+Entre las dependencias que nos hemos descargado para la realización de este proyecto podemos destacar: Firebase admin , Firebase client, Firebase authentication, Firebase encoders json, Firebase common, Firebase server, Firebase core, Firebase config, Firebase firestoy y Firebase database.
+
+Despues de habernos descargado las dependencias hemos añadido el siguiente segmento de código Java para permitir la conexión entre Firebase y la aplicación.
 
 ```java
 package com.example.flightapp.services;
