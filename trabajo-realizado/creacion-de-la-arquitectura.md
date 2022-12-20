@@ -17,4 +17,35 @@ Tomamos como patrón de diseño el patrón observador, el cuál consta de un obj
 
 El éxito de uso de este patrón de diseño es que cuando el objeto principal, sea este nuestro avión, sufra o realice un cambio estado, éste se notificará a nuestros observadores que son dependientes de estos cambios de estado y por tanto se activará la llamada update() en el escolta para poder copiar la ruta de nuestro avión.
 
+Aquí veremos principalmente como funcionará y se lanzará nuestro avión principal el cuál corresponde a nuestra clase "Primario"
+
+```java
+public void run() {
+        //se genera un identificador de vuelo
+        genIdentificador();
+        //primero se obtiene un plan de vuelo
+        plan();
+        //luego se obtiene la ruta
+        ruta(lat1, lng1, lat2, lng2);
+        //empezar vuelo
+        vuelo();
+        notificarTorre(/*rutas*/);
+    }
+```
+
+Tenemos nuestro método run(), dónde a nuestro avión principal se le otorgará un ID para trackear su vuelo, después hace un plan de vuelo y se calculará la ruta en función al plan seleccionado, sea ésta ruta establecida en función a las coordenadas de los origen y destino del viaje.
+
+Una vez generados estos datos y establecida la ruta el avión principal puede empezar su vuelvo y poco más tarde se notificará  a nuestra clase TorreControl la ruta de vuelo primaria.
+
+Por ello nos fijamos de la necesidad de crear la clase TorreControl, en la cuál desarrollaremos nuestra asignación de un escolta a nuestro avión principal y el update() de la ruta que toma el principal en nuestro observador escolta.
+
 Así podremos apreciar como le persigue este 2ºAvión. En caso de un cambio de ruta sería posible que nuestro escolta sería capaz de volver a cargar la ruta gracias a la notificación recibida por el cambio de estado(la nueva ruta a seguir/trackear)
+
+
+
+<figure><img src="../.gitbook/assets/imgFS3.png" alt=""><figcaption><p>Gestión del proyecto 1</p></figcaption></figure>
+
+También nuestro aeropuerto que en principio era como gestión de datos principal que se convirtió en llamadas a nuestra API en función al destino de nuestro avión, en ella encontraremos la geolocalización de todos ellos además de una etiqueta clave.
+
+
+
