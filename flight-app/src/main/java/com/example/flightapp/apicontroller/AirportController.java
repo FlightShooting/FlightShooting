@@ -31,6 +31,6 @@ public class AirportController {
     }
 
 
-  //  @GetMapping("/airports")*/
+  //  @GetMapping("/airports")
 
 }
