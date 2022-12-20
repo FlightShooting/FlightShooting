@@ -8,7 +8,7 @@ description: >-
 
 Pasos que hemos seguido para la creación de la API con firebase:&#x20;
 
-
+1. Después de haber creado  una cuenta en Firebase hemos creado un RealTime database donde hemos importado el siguiente fichero JSON que hemos previamente creado.&#x20;
 
 
 
@@ -71,3 +71,7 @@ Pasos que hemos seguido para la creación de la API con firebase:&#x20;
 
 
 ```
+
+<figure><img src="../.gitbook/assets/codigos.png" alt=""><figcaption><p>Datos almacenados en RealTime Database </p></figcaption></figure>
+
+2\. Despues&#x20;

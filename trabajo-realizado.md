@@ -6,3 +6,9 @@ description: >-
 
 # Trabajo Realizado
 
+Nuestro trabajo comienza en la herramienta de "Github", la cual nos permite gestionar la arquitectura del proyecto en función a las clases que vamos a crear.
+
+En los "projects" de nuestro programa de vuelos hemos ido organizando la forma de trabajo, como podemos ver aquí
+
+<figure><img src=".gitbook/assets/imgFS-1 (1).png" alt=""><figcaption><p>(imagen tomada el día 28/11/2022)</p></figcaption></figure>
+
