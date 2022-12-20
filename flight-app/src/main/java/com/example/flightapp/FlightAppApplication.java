@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.IOException;
+import java.util.Random;
 
 @SpringBootApplication
 public class FlightAppApplication {
@@ -15,7 +16,8 @@ public class FlightAppApplication {
     public static void main(String[] args) throws IOException {
 
        SpringApplication.run(FlightAppApplication.class, args);
-       Primario p = new Primario( "1", 100, 1000);
+        System.out.println("--SE ABRE EL TRAFICO AEREO--");
+       Primario p = new Primario();
        p.run();
     }
 

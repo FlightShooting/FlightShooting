@@ -1,6 +1,6 @@
 package com.example.flightapp.aviones;
 
-public class Escolta implements Runnable, Avion {
+public class Escolta implements Runnable {
         private String ruta;
 
     public void update(String rutas) {

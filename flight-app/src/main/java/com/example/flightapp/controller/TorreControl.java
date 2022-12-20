@@ -1,6 +1,5 @@
 package com.example.flightapp.controller;
 
-import com.example.flightapp.aviones.Avion;
 import com.example.flightapp.aviones.Escolta;
 
 import java.util.ArrayList;
