@@ -12,3 +12,4 @@ En los "projects" de nuestro programa de vuelos hemos ido organizando la forma d
 
 <figure><img src=".gitbook/assets/imgFS-1 (1).png" alt=""><figcaption><p>(imagen tomada el día 28/11/2022)</p></figcaption></figure>
 
+Este es un ejemplo de como fuimos creando la clase Avión que veremos más en detalle de qué se encarga exactamente
