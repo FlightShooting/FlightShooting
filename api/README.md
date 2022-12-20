@@ -181,7 +181,7 @@ Entre las dependencias que nos hemos descargado para la realización de este pro
 Despues de habernos descargado las dependencias hemos añadido el siguiente segmento de código Java para permitir la conexión entre Firebase y la aplicación.
 
 ```java
-package com.example.flightapp.services;
+package com.example.flightapp.apicontroller;
 
 
 import com.google.firebase.FirebaseApp;
@@ -193,7 +193,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 @Controller
-public class AirportService {
+public class AirportController {
     private static final String apikey = "AIzaSyC8Cv6m-EMb1WxemWUcuLRxz5lOBpdQHiY";
     private static final String databaseURL = "https://airports-c14a9-default-rtdb.europe-west1.firebasedatabase.app/";
     
