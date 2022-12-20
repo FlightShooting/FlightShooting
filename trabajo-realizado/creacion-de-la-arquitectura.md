@@ -36,7 +36,7 @@ public void run() {
 Tenemos nuestro método run(), dónde a nuestro avión principal se le otorgará un ID para trackear su vuelo, después hace un plan de vuelo y se calculará la ruta en función al plan seleccionado, sea ésta ruta establecida en función a las coordenadas de los origen y destino del viaje.
 
 ```java
-//  private void plan() {
+private void plan() {
         //crear plan de vuelo estableciendo origen y destino
         boolean iguales = true;
         int ori = 0;
