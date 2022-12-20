@@ -183,6 +183,7 @@ Despues de habernos descargado las dependencias hemos añadido el siguiente segm
 ```java
 package com.example.flightapp.services;
 
+
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -193,11 +194,12 @@ import java.io.IOException;
 
 @Controller
 public class AirportService {
+    private static final String apikey = "AIzaSyC8Cv6m-EMb1WxemWUcuLRxz5lOBpdQHiY";
+    private static final String databaseURL = "https://airports-c14a9-default-rtdb.europe-west1.firebasedatabase.app/";
+    
     public void conectar() {
         try {
-            FirebaseOptions options = new FirebaseOptions.Builder().setApiKey("AIzaSyC8Cv6m-EMb1WxemWUcuLRxz5lOBpdQHiY")
-                    .setDatabaseUrl("https://airports-c14a9-default-rtdb.europe-west1.firebasedatabase.app/airports.json")
-                    .build();
+            FirebaseOptions options = new FirebaseOptions.Builder().setApiKey(apikey).setDatabaseUrl(databaseURL).build();
             FirebaseApp.initializeApp(options);
         } catch (FileNotFoundException e) {
             System.out.println("ERROR: invalid service account credentials. See README.");
@@ -210,5 +212,6 @@ public class AirportService {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     }
 }
+
 
 ```
