@@ -1,6 +1,5 @@
 package com.example.flightapp.apicontroller;
 
-
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -29,8 +28,6 @@ public class AirportController {
         // Shared Database reference
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     }
-
-
   //  @GetMapping("/airports")
 
 }

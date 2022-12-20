@@ -9,13 +9,8 @@ public class Escolta implements Runnable {
         this.id = id;
         run();
     }
-
     @Override
     public void run() {
         System.out.println("Avión escolta para vuelo #" + id +  " despegando . . .");
     }
-
-
-
-
 }

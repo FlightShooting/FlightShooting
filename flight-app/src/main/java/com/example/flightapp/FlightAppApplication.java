@@ -17,7 +17,6 @@ public class FlightAppApplication {
     public static void main(String[] args) {
         /*AirportController airportController = new AirportController();
         airportController.conectar();*/
-
         System.out.println("--SE ABRE EL TRAFICO AEREO--");
        Primario p = new Primario();
        p.run();
