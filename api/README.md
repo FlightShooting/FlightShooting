@@ -87,3 +87,126 @@ Para eso hemos tenido que configurar el SDK con el siguiente comando
 ```bash
 npm install firebase
 ```
+
+4\. Desués hemos iniciado a descargar las dependencias:
+
+```xml
+        <!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-admin -->
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-admin</artifactId>
+            <version>9.1.1</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-database -->
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-database</artifactId>
+            <version>20.1.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-firestore -->
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-firestore</artifactId>
+            <version>24.4.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>6.0.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-config -->
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-config</artifactId>
+            <version>21.2.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-encoders-json -->
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-encoders-json</artifactId>
+            <version>18.0.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-core -->
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-core</artifactId>
+            <version>21.1.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-auth -->
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-auth</artifactId>
+            <version>21.1.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.firebase/firebase-client -->
+        <dependency>
+            <groupId>com.firebase</groupId>
+            <artifactId>firebase-client</artifactId>
+            <version>2.2.4</version>
+            <type>pom</type>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-server-sdk -->
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-server-sdk</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-common -->
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-common</artifactId>
+            <version>20.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>firebase</groupId>
+            <artifactId>bitmap-sdf</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+
+
+    </dependencies>
+```
+
+Entre las dependencias&#x20;
+
+```java
+package com.example.flightapp.services;
+
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import org.springframework.stereotype.Controller;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+@Controller
+public class AirportService {
+    public void conectar() {
+        try {
+            FirebaseOptions options = new FirebaseOptions.Builder().setApiKey("AIzaSyC8Cv6m-EMb1WxemWUcuLRxz5lOBpdQHiY")
+                    .setDatabaseUrl("https://airports-c14a9-default-rtdb.europe-west1.firebasedatabase.app/airports.json")
+                    .build();
+            FirebaseApp.initializeApp(options);
+        } catch (FileNotFoundException e) {
+            System.out.println("ERROR: invalid service account credentials. See README.");
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Shared Database reference
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+    }
+}
+
+```
