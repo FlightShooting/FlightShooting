@@ -2,13 +2,13 @@ package com.example.flightapp.aviones;
 
 import com.example.flightapp.controller.TorreControl;
 
-import java.util.Random;
-import java.lang.Thread;
+import java.time.Duration;
+import java.util.Date;
 
 public class Primario implements Runnable {
     private String id;
     //velocidad de un vuelo comercial
-    private int velocidad = 860;
+    private int velocidad = 740;
 
     private int altura;
 
@@ -21,8 +21,7 @@ public class Primario implements Runnable {
     private double lng1;
     private double lat2;
     private double lng2;
-
-    private String[] Codigos;
+    private double tiempo;
 
     @Override
     public void run() {
@@ -34,13 +33,19 @@ public class Primario implements Runnable {
         ruta(lat1, lng1, lat2, lng2);
         //empezar vuelo
         vuelo();
-        notificarTorre(/*rutas*/);
+        notificarLlegada();
+    }
+
+    private void notificarLlegada() {
+        TorreControl observable = new TorreControl();
+        Escolta observer = new Escolta();
+        observable.removeEscolta(observer);
     }
 
     private void genIdentificador() {
-        Random random = new Random();
-        int num = random.nextInt(1000);
-        this.id = String.format("%03d", num);
+        //genera in identificador para el vuelo con la fecha de salida en hexadecimal
+        Date fechaActual = new Date();
+        this.id = Long.toHexString(fechaActual.getTime());
         System.out.println("El vuelo: #" + id + " se prepara para partir");
     }
 
@@ -48,28 +53,38 @@ public class Primario implements Runnable {
         TorreControl observable = new TorreControl();
         Escolta observer = new Escolta();
         observable.addEscolta(observer);
-        //observable.setRutas(/*rutas*/);
-
+        observable.setRutas(id, distancia);
     }
 
     //este metodo tarda en ejecutarse lo que representa el tiempo que tarda en realizarse el vuelo
     private void vuelo() {
-        System.out.println("El vuelo: " + id + " con origen " + this.origen + " y destino " + this.destino + " esta despegando . . .");
+        System.out.println("El vuelo: #" + id + " con origen " + this.origen + " y destino " + this.destino + " esta despegando . . .");
+        //notifica a la torre de control
+        notificarTorre();
         //calcular tiempo de vuelo restante y mostrarlo
-        double progreso = 100.0; // the distance you want to represent as a percentage
-        double totalDistance = distancia; // the total distance
-
-        double percentage = (progreso / totalDistance) * 100.0; // calculate the percentage
         System.out.println("Progreso del vuelo:");
+        double progreso = 0; //porcentage de veulo completado
         boolean volando = true;
-        while (volando){
-            System.out.println(percentage + "% . . .");
-            Thread.sleep(1000);
-            if ()
-        }
 
+        while (volando) {
+
+            System.out.printf("%.2f", progreso);
+            System.out.println("% . . .");
+            double incremento = (1 + (velocidad / distancia));
+            progreso = progreso + incremento;
+            if (progreso > 100.0) {
+                System.out.println("100.00%");
+                volando = false;
+            }
+            try {
+                Thread.sleep(10); // Espera por un segundo
+            } catch (InterruptedException e) {
+                // Maneja la excepción
+            }
+
+        }
         //notificar cuando se llegue a destino
-        System.out.println("El avion " + id + " ha llegado a su destino");
+        System.out.printf("El vuelo #%s ha llegado a su destino en %.2f horas. ",id , tiempo);
     }
 
     private void plan() {
@@ -158,7 +173,7 @@ public class Primario implements Runnable {
     }
 
     public void ruta(double lat1, double lng1, double lat2, double lng2) {
-        //calcular ruta para llegar de A a B
+        //calcular ruta para llegar de A a B y tiempo
         double dLat = Math.toRadians(lat2 - lat1);
         double dLng = Math.toRadians(lng2 - lng1);
         double sindLat = Math.sin(dLat / 2);
@@ -167,10 +182,9 @@ public class Primario implements Runnable {
                 * Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2));
         double va2 = 2 * Math.atan2(Math.sqrt(va1), Math.sqrt(1 - va1));
         this.distancia = 6371 * va2;
-        //
-        System.out.println(distancia);
-        //calcular tiempo de vuelo
-        double tiempo = distancia / velocidad;
-        System.out.println("ETA: " + tiempo + "hrs.");
+        this.tiempo = distancia / velocidad;
+        //calcular tiempo de vuelo aproximado
+        System.out.printf("ETA: %.2f hrs. ", tiempo);
+        System.out.println("");
     }
 }

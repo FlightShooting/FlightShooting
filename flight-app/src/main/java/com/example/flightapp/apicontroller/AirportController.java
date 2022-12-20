@@ -11,8 +11,10 @@ import java.io.IOException;
 
 @Controller
 public class AirportController {
+
     private static final String apikey = "AIzaSyC8Cv6m-EMb1WxemWUcuLRxz5lOBpdQHiY";
     private static final String databaseURL = "https://airports-c14a9-default-rtdb.europe-west1.firebasedatabase.app/";
+
     public void conectar() {
         try {
             FirebaseOptions options = new FirebaseOptions.Builder().setApiKey(apikey).setDatabaseUrl(databaseURL).build();
@@ -29,6 +31,6 @@ public class AirportController {
     }
 
 
-  //  @GetMapping("/airport")
+  //  @GetMapping("/airports")*/
 
 }
