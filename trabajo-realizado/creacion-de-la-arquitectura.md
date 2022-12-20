@@ -35,9 +35,27 @@ public void run() {
 
 Tenemos nuestro método run(), dónde a nuestro avión principal se le otorgará un ID para trackear su vuelo, después hace un plan de vuelo y se calculará la ruta en función al plan seleccionado, sea ésta ruta establecida en función a las coordenadas de los origen y destino del viaje.
 
+```java
+//  private void plan() {
+        //crear plan de vuelo estableciendo origen y destino
+        boolean iguales = true;
+        int ori = 0;
+        int des = 0;
+        //generar numero aleatorio para el id entre 1 y 5
+        while (iguales) {
+            ori = (int) (Math.random() * 5 + 1);
+            des = (int) (Math.random() * 5 + 1);
+            if (ori != des) {
+                iguales = false;
+            }
+        }
+```
+
 Una vez generados estos datos y establecida la ruta el avión principal puede empezar su vuelvo y poco más tarde se notificará  a nuestra clase TorreControl la ruta de vuelo primaria.
 
 Por ello nos fijamos de la necesidad de crear la clase TorreControl, en la cuál desarrollaremos nuestra asignación de un escolta a nuestro avión principal y el update() de la ruta que toma el principal en nuestro observador escolta.
+
+Queremos recalcar el uso de datos reales para la simulación de estos vuelos sea lo más parecido a un vuelo comercial. Por ello las coordenadas son los más precisas posibles y la velocidad de nuestros aviones parecidas a lo que tardaría el vuelo entre el destino y origen.
 
 Así podremos apreciar como le persigue este 2ºAvión. En caso de un cambio de ruta sería posible que nuestro escolta sería capaz de volver a cargar la ruta gracias a la notificación recibida por el cambio de estado(la nueva ruta a seguir/trackear)
 
