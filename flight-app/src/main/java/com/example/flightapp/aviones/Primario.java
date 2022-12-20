@@ -1,8 +1,16 @@
 package com.example.flightapp.aviones;
 
+import com.example.flightapp.controller.TorreControl;
+
 import java.io.*;
 
-public class Primario extends Avion implements Runnable {
+public class Primario implements Runnable, Avion{
+    private String id;
+    private int velocidad;
+
+    private int altura;
+
+    private int distancia;
     private String origen;
     private String destino;
     private String CodOrig;
@@ -10,8 +18,10 @@ public class Primario extends Avion implements Runnable {
 
     private String[] Codigos;
 
-    public Primario(String id, int velocidad, int recorrido) throws IOException {
-        super(id, velocidad, recorrido);
+    public Primario(String id, int velocidad, int recorrido)  {
+        this.id = id;
+        this.velocidad = velocidad;
+        this.altura = recorrido;
     }
 
     @Override
@@ -19,9 +29,18 @@ public class Primario extends Avion implements Runnable {
         //primero se obtiene un plan de vuelo
         plan();
         //luego se obtiene la ruta
-            ruta();
+        ruta();
         //empezar vuelo
         vuelo(velocidad, id);
+        notificarTorre(/*rutas*/);
+    }
+
+    private void notificarTorre(/*rutas*/) {
+        TorreControl observable = new TorreControl();
+        Escolta observer = new Escolta();
+        observable.addEscolta(observer);
+        //observable.setRutas(/*rutas*/);
+
     }
 
     //este metodo tarda en ejecutarse lo que representa el tiempo que tarda en realizarse el vuelo
@@ -52,22 +71,27 @@ public class Primario extends Avion implements Runnable {
 
                 this.CodOrig = "LEMD";
                 this.origen = "Madrid-Barajas";
+
                 break;
             case 2:
                 this.CodOrig = "LEBL";
                 this.origen = "Barcelona-El Prat";
+
                 break;
             case 3:
                 this.CodOrig = "EGLL";
                 this.origen = "Londres-Heathrow";
+
                 break;
             case 4:
                 this.CodOrig = "EHAM";
                 this.origen = "Amsterdam-Schiphol";
+
                 break;
             case 5:
                 this.CodOrig = "LFPG";
                 this.origen = "Paris-Charles de Gaulle";
+
                 break;
         }
         switch (des) {
@@ -108,7 +132,7 @@ public class Primario extends Avion implements Runnable {
  */
 
         //calcular ruta para llegar de A a B
-     //   ordenadorVuelo(lat1,lon1,lat2,lon2);
+        //ordenadorVuelo(lat1,lon1,lat2,lon2);
 
 
 

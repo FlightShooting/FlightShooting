@@ -1,13 +1,19 @@
 package com.example.flightapp.aviones;
 
-public class Escolta extends Avion implements Runnable {
+public class Escolta implements Runnable, Avion {
+        private String ruta;
 
-    public Escolta(String id, int velocidad, int recorrido) {
-        super(id, velocidad, recorrido);
+    public void update(String rutas) {
+        this.ruta = rutas;
+        run();
     }
 
     @Override
     public void run() {
 
     }
+
+
+
+
 }

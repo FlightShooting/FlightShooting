@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ede0d5d2-7af3-4e8e-b5f3-7ef833f91e0d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flight-app/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/flight-app/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flight-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/flight-app/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

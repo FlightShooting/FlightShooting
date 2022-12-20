@@ -14,7 +14,7 @@
     <name>flight-app</name>
     <description>flight-app</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>13</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -42,6 +42,13 @@
             <groupId>com.google.firebase</groupId>
             <artifactId>firebase-firestore</artifactId>
             <version>24.4.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>6.0.3</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-config -->
@@ -93,7 +100,7 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
-            <version>9.0.68</version>
+            <version>10.1.4</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
