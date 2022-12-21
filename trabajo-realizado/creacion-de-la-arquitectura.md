@@ -51,7 +51,7 @@ private void plan() {
 
 Una vez generados estos datos y establecida la ruta el avión principal puede empezar su vuelvo y justo se notificará a nuestra clase TorreControl la ruta de vuelo primaria.
 
-```
+```java
   public void setRutas(String id, double distancia){
     this.rutas = distancia;
     for (Escolta avion : this.avion){
@@ -63,8 +63,8 @@ Una vez generados estos datos y establecida la ruta el avión principal puede em
 
 Por ello nos fijamos de la necesidad de crear la clase TorreControl, en la cuál desarrollaremos nuestra asignación de un escolta a nuestro avión principal y el update() de la ruta que toma el principal en nuestro observador escolta.
 
-```
-// public void addEscolta(Escolta avion){
+```java
+public void addEscolta(Escolta avion){
 this.avion.add(avion);
 }
 ```
@@ -73,7 +73,7 @@ Queremos recalcar el uso de datos reales para la simulación de estos vuelos sea
 
 Así podremos apreciar como le persigue este 2ºAvión. En caso de un cambio de ruta sería posible que nuestro escolta sería capaz de volver a cargar la ruta gracias a la notificación recibida por el cambio de estado(la nueva ruta a seguir/trackear)
 
-```
+```java
 public void update(String id, double ruta) {
     this.ruta = ruta;
     this.id = id;
