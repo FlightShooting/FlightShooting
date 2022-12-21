@@ -1,8 +1,7 @@
 ---
 description: >-
-  La arquitectura utilizada es con está divida en pequeñas fragmentos del
-  proyecto para su fácil desarrollo y gestión por parte de un equipo
-  principalmente telemático
+  Dividir la arquitectura del código de un proyecto puede ayudar a que el código
+  sea más organizado y escalable.
 ---
 
 # Creación de la Arquitectura
@@ -29,7 +28,6 @@ public void run() {
         ruta(lat1, lng1, lat2, lng2);
         //empezar vuelo
         vuelo();
-        notificarTorre(/*rutas*/);
     }
 ```
 
@@ -51,13 +49,37 @@ private void plan() {
         }
 ```
 
-Una vez generados estos datos y establecida la ruta el avión principal puede empezar su vuelvo y poco más tarde se notificará  a nuestra clase TorreControl la ruta de vuelo primaria.
+Una vez generados estos datos y establecida la ruta el avión principal puede empezar su vuelvo y justo se notificará a nuestra clase TorreControl la ruta de vuelo primaria.
+
+```
+  public void setRutas(String id, double distancia){
+    this.rutas = distancia;
+    for (Escolta avion : this.avion){
+      avion.update(id,this.rutas);
+    }
+  }
+  
+```
 
 Por ello nos fijamos de la necesidad de crear la clase TorreControl, en la cuál desarrollaremos nuestra asignación de un escolta a nuestro avión principal y el update() de la ruta que toma el principal en nuestro observador escolta.
+
+```
+// public void addEscolta(Escolta avion){
+this.avion.add(avion);
+}
+```
 
 Queremos recalcar el uso de datos reales para la simulación de estos vuelos sea lo más parecido a un vuelo comercial. Por ello las coordenadas son los más precisas posibles y la velocidad de nuestros aviones parecidas a lo que tardaría el vuelo entre el destino y origen.
 
 Así podremos apreciar como le persigue este 2ºAvión. En caso de un cambio de ruta sería posible que nuestro escolta sería capaz de volver a cargar la ruta gracias a la notificación recibida por el cambio de estado(la nueva ruta a seguir/trackear)
+
+```
+public void update(String id, double ruta) {
+    this.ruta = ruta;
+    this.id = id;
+    run();
+}
+```
 
 
 
